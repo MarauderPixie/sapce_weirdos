@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Nova+Round&family=Permanent+Marker&display=swap');
+
+table {
+    margin: 5px;
+    border: solid 3px;
+    border-collapse: collapse;
+}
+
+th {
+	font-family: 'Nova Round';
+    text-align: center;
+    color: white;
+    background-color: black;
+}
+
+td, th {
+    text-align: center;
+    border: solid 1px;
+    border-color: black;
+    padding: 2px;
+}
+td {
+	font-family: 'Permanent Marker';
+}
+
+
+@media print {
+    #content, #page {
+        width: 10%; 
+        margin: 0; 
+        float: none;
+    }
+    @page {
+        margin: 1cm; 
+    }
+}

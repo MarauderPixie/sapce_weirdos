@@ -1,0 +1,18 @@
+makeReactiveTrigger <- function() {
+  rv <- reactiveValues(a = 0)
+  list(
+    depend = function() {
+      rv$a
+      invisible()
+    },
+    trigger = function() {
+      rv$a <- isolate(rv$a + 1)
+    }
+  )
+}
+
+
+server <- function(input, output) {
+  unit_values <- reactiveValues(data = NULL)
+  uiTrigger <- makeReactiveTrigger()
+}
