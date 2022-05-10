@@ -16,6 +16,8 @@ pointlist <- read_delim("pointlist.csv", delim = ";",
                         escape_double = FALSE, trim_ws = TRUE)
 
 # unit <- c()
+# mutants  <- c("Claws & Teeth", "Horrible Claws & Teeth", "Whip/Tail")
+# soldiers <- c("Grenade*", "Heavy Armor", "Medkit*")
 
 # Define UI for application that draws a histogram
 ui <- fluidPage(
@@ -183,18 +185,20 @@ server <- function(input, output) {
     })
     
     output$current_points <- renderText({
-        x <- sum(c(
-            pointlist$Points[pointlist$Name == input$speed & pointlist$Area == "Speed"],
-            pointlist$Points[pointlist$Name == input$def & pointlist$Area == "Defense"],
-            pointlist$Points[pointlist$Name == input$fp & pointlist$Area == "Firepower"],
-            pointlist$Points[pointlist$Name == input$pw & pointlist$Area == "Prowess"],
-            pointlist$Points[pointlist$Name == input$wp & pointlist$Area == "Willpower"],
-            pointlist$Points[pointlist$Name == input$rw],
-            pointlist$Points[pointlist$Name == input$cc],
-            pointlist$Points[pointlist$Name == input$eq]
-        ))
-        
-        paste0("Create Unit (Cost: ", x, ")")
+      
+      
+      x <- sum(c(
+        pointlist$Points[pointlist$Name == input$speed & pointlist$Area == "Speed"],
+        pointlist$Points[pointlist$Name == input$def & pointlist$Area == "Defense"],
+        pointlist$Points[pointlist$Name == input$fp & pointlist$Area == "Firepower"],
+        pointlist$Points[pointlist$Name == input$pw & pointlist$Area == "Prowess"],
+        pointlist$Points[pointlist$Name == input$wp & pointlist$Area == "Willpower"],
+        pointlist$Points[pointlist$Name == input$rw],
+        pointlist$Points[pointlist$Name == input$cc],
+        pointlist$Points[pointlist$Name == input$eq]
+      ))
+      
+      paste0("Create Unit (Cost: ", x, ")")
     })
     
     ## render unit table ----
