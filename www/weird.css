@@ -25,12 +25,12 @@ td {
 
 
 @media print {
-    #content, #page {
-        width: 10%; 
-        margin: 0; 
-        float: none;
+    /* #warband_tile, #unit_area { */
+    #print_space {
+        margin: 0.8cm; 
+        display: flex;
     }
-    @page {
-        margin: 1cm; 
+    .col-sm-4 {
+        flex: 30%;
     }
 }
